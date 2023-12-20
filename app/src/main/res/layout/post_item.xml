@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="post"
+            type="com.example.test_task.database.Post" />
+    </data>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:setBackground="@{post.color}"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/post_image"
+                android:layout_width="0dp"
+                android:layout_height="170dp"
+                android:contentDescription="@string/post_image"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{post.picture}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/post_comment"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+
+            <TextView
+                android:id="@+id/post_comment"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:maxLines="2"
+                android:text="@{post.comment}"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/change_date"
+                app:layout_constraintStart_toEndOf="@id/post_image"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Top comment" />
+
+            <TextView
+                android:id="@+id/change_date"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/post_image"
+                app:layout_constraintTop_toBottomOf="@id/post_comment"
+                tools:text="14.12.2023" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

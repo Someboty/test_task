@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.test_task.detail.PostEditViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/postDetail_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/postDetail_header_text"
+            app:layout_constraintBottom_toTopOf="@id/postDetail_choose_picture_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/postDetail_choose_picture_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/postDetail_choose_picture_label_text"
+            app:layout_constraintTop_toBottomOf="@id/postDetail_header"
+            app:layout_constraintBottom_toTopOf="@id/postDetail_photo_recycler"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/postDetail_photo_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/postDetail_choose_color_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/postDetail_choose_picture_label"
+            app:listPicturesData="@{viewModel.pictures}"
+            tools:itemCount="4"
+            tools:listitem="@layout/photo_item" />
+
+        <TextView
+            android:id="@+id/postDetail_choose_color_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/postDetail_choose_color_label_text"
+            app:layout_constraintTop_toBottomOf="@id/postDetail_photo_recycler"
+            app:layout_constraintBottom_toTopOf="@id/postDetail_color_spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Spinner
+            android:id="@+id/postDetail_color_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/color_array"
+            android:prompt="@string/postDetail_choose_color_label_text"
+            app:layout_constraintTop_toBottomOf="@id/postDetail_choose_color_label"
+            app:layout_constraintBottom_toTopOf="@id/postDetail_comment_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/postDetail_comment_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/comment_hint"
+            android:autofillHints="comment"
+            android:inputType="textMultiLine"
+            android:lines="6"
+            app:layout_constraintTop_toBottomOf="@id/postDetail_color_spinner"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

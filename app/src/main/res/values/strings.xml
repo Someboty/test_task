@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">test_task</string>
+    <string name="post_image">Post image</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_save">Save</string>
+    <string name="comment_hint">Write your comment here</string>
+    <string name="overview_fab_description">FAB for the creating a new post</string>
+    <string name="postDetail_header_text">Create new post</string>
+    <string name="postDetail_header_text_edit">Edit post</string>
+    <string name="postDetail_choose_picture_label_text">Choose the picture for your post:</string>
+    <string name="postDetail_choose_color_label_text">Choose color for your post</string>
+    <string name="auth_email_label_text">Email:</string>
+    <string name="auth_email_text_hint">Enter your email</string>
+    <string name="auth_password_label_text">Password:</string>
+    <string name="auth_password_text_hint">Enter your password</string>
+    <string name="auth_remember_me_checkbox_text">Remember me?</string>
+    <string name="auth_button_text">Sign In</string>
+</resources>

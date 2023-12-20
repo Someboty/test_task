@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/firebaseAuthFragment">
+
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.example.test_task.overview.OverviewFragment"
+        android:label="OverviewFragment"
+        tools:layout="@layout/fragment_overview">
+        <action
+            android:id="@+id/actionShowDetail"
+            app:destination="@id/postDetailFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_firebaseAuthFragment"
+            app:destination="@id/firebaseAuthFragment"
+            app:popUpTo="@id/firebaseAuthFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/postDetailFragment"
+        android:name="com.example.test_task.detail.PostEditFragment"
+        android:label="PostDetailFragment"
+        tools:layout="@layout/post_item">
+        <argument
+            android:name="post"
+            app:nullable="true"
+            app:argType="com.example.test_task.database.Post" />
+        <action
+            android:id="@+id/action_postDetailFragment_to_firebaseAuthFragment"
+            app:destination="@id/firebaseAuthFragment"
+            app:popUpTo="@id/overviewFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_postDetailFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/firebaseAuthFragment"
+        android:name="com.example.test_task.auth.FirebaseAuthFragment"
+        android:label="FirebaseAuthFragment"
+        tools:layout="@layout/fragment_auth">
+        <action
+            android:id="@+id/action_firebaseAuthFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment"
+            app:popUpTo="@id/firebaseAuthFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+</navigation>
